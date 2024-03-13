@@ -10,7 +10,7 @@ on:
       choose_version:
         description: 'required go version'
         required: true
-        type: choice
+        type: multi-select
         options:
           - "1.18"
           - "1.20"
