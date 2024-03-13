@@ -1,20 +1,24 @@
-  test: # make sure the action works on a clean machine without building
-    runs-on: ubuntu-latest
-    permissions:
-      pull-requests: write
-    steps:
-      - uses: actions/checkout@v3
-      - uses: marocchino/checkbox-action@v1
-        with:
-          list: 'test ok'
-          action: 'uncheck'
-          error: 'warn'
-      - run: |
-          yarn
-      - run: |
-          yarn all
-      - uses: marocchino/checkbox-action@v1
-        with:
-          list: 'test ok'
-          action: 'check'
-          error: 'warn'
+  name: test-checkboxaction # make sure the action works on a clean machine without building
+  
+  on: 
+    workflow_dispatch:
+    
+  runs-on: ubuntu-latest
+  permissions:
+    pull-requests: write
+  steps:
+    - uses: actions/checkout@v3
+    - uses: marocchino/checkbox-action@v1
+      with:
+        list: 'test ok'
+        action: 'uncheck'
+        error: 'warn'
+    - run: |
+        yarn
+    - run: |
+        yarn all
+    - uses: marocchino/checkbox-action@v1
+      with:
+        list: 'test ok'
+        action: 'check'
+        error: 'warn'
