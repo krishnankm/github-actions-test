@@ -1,0 +1,15 @@
+# To test cronjob
+
+name: test-cronjob
+
+on:
+  schedule:
+    - cron: '*/5 * * * *'
+
+jobs:
+  cronjob:
+    name: Run every five minutes
+    runs-on: ubuntu-latest
+    steps:
+      - name: Echo message
+        run: echo "Cronjob on every five minutes"
